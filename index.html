@@ -1,0 +1,405 @@
+<!doctype html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>What Docker Means</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/serif.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+	 var link = document.createElement( 'link' );
+	 link.rel = 'stylesheet';
+	 link.type = 'text/css';
+	 link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+	 document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+    </head>
+    <body>
+	<div class="reveal">
+	    <div class="slides">
+		<section data-background-color="#ffff99">
+		    <h2>What Docker Means</h2>
+		    <tiny><a href="http://www.tompurl.com">Tom Purl</a></tiny>
+		</section>
+		<section data-background-color="#ffff99">
+		    <h2>Overview</h2>
+		    <ul>
+			<li>This is a general overview of the basic
+			    pieces of Docker and how they will all
+			    have a major impact on many technologists.</li>
+			<li>Please ask questions at any time &#9786;</li>
+		    </ul>
+		    <aside class="notes">
+			Docker's a big subject, so it's difficult to
+		    create something that isn't too specific or too
+		    broad. I'm leaving lots of time for questions so
+		    that we can cover the most important topics for
+		    the audience.</aside>
+		</section>
+		
+		<section data-background-color="#ffff99">
+		    <h2>What Docker Actually Is</h2>
+
+		    <ul>
+			<li>Implementation of the LXC Linux container standard</li>
+			<li>Command-line API</li>
+			<li>Extra tooling to make it easy to:</li>
+			<ul>
+			    <li>Create images</li>
+			    <li>Run and connect containers</li>
+			</ul>
+			<li>An ecosystem for sharing images</li>
+		    </ul>
+		</section>
+
+		<section data-background-color="#ffff99">
+
+		    <h2>Docker Means More Than It Is</h2>
+		    <img src="./images/7-minute-abs.jpg" />
+		    <aside class="notes">
+			<ul>
+			    <li>Docker isn't just a slightly better way of doing things</li>
+			    <li>It fundamentally changes how hosted applications are built, tested, executed and managed.</li>
+			    <li>Docker (and other similar tools) will transform many large IT departments.</li>
+			</ul>
+		    </aside>
+		</section>
+
+		<!-- BEGIN Docker means less developer downtime -->
+		<section data-background-color="#cc99ff">
+		    		    
+		    <section>
+			<h2>Docker Means Less Developer Downtime</h2>
+		    </section>
+
+		    <section>
+			<h2>Less time waiting to launch VM's</h2>
+			<ul>
+			    <li>Launching a container is usually very, very fast, usually less than 5 seconds.</li>
+			    <li>Order of magnitude difference compared to VM's.</li>
+			</ul>
+		    </section>
+
+		    <section>
+			<h2>Less Time Setting Up Dev Environments</h2>
+			<ul>
+			    <li>Reproducing prod is much easier when it and your laptop are using the same Docker images.</li>
+			</ul>
+		    </section>
+		    
+		</section>
+		<!-- END Docker means less developer downtime -->
+
+		<!-- BEGIN Docker Means More Consistent Delivery Quality -->
+		<section data-background="#80ccff">
+		    <section>
+			<h2>Docker Means More Consistent Delivery Quality</h2>
+		    </section>
+
+		    <section>
+			<h2>The App Server Paradigm Shift</h2>
+			<img src="images/pen_pineapple_apple_pen_by_chrisn_art-dajd0h1.png" />
+		    </section>
+
+		    <section>
+			<h2>Coupling Your App Server And Code</h2>
+			<ul>
+			    <li>Your code and app server are "squished
+				together" and <b>that's</b> your deployable.</li>
+			    <li>I repeat, you don't deploy <b>code</b>, you
+				deploy <b>single-purpose servers</b>.</li>
+			</ul>
+			<aside class="notes">
+			    No more installing your WAR file (or whatever) on an artisanally
+			    crafted application server that's:
+			    <ul>
+				<li>Out of sync with your laptop</li>
+				<li>Out of sync with your QA environment</li>
+				<li>Out of sync with every node in its own cluster</li>
+				<li>Maintained by some asshole who refuses to answer your email.</li>
+			    </ul>
+			</aside>
+		    </section>
+
+		    <section>
+			<h2>We're Not Building Cathedrals Any More</h2>
+			<img src="images/nice-porta-potty-medium.png" />
+			<br />
+			<small>Credit: <a href="http://i.imgur.com/yZpf0nH.jpg">http://i.imgur.com/yZpf0nH.jpg</a></small>
+			<aside class="notes">
+			    <ul>
+				<li>We're no longer building systems that have to work perfectly for a long time.</li>
+				<li>We're building systems that are easy to create, copy, replace and destroy.</li>
+				<li>Portable wedding party analogy</li>
+			    </ul>
+			</aside>
+		    </section>
+
+		    <section>
+			<h2>You Forgot To Say Immutable!</h2>
+			<ul>
+			    <li>Not quite, depends on how you use them</li>
+			    <li>Not true immutability, but better than what we have today.</li>
+			    <li>Old containers are not patched, they are replaced</li>
+			</ul>
+		    </section>
+
+		    <section>
+			<h2>It Works On My Machine</h2>
+			<ul>
+			    <li>We're now almost to the point where you can say this :-)</li>
+			    <li>The containers that run on your
+				machine are the same ones that run in
+				Prod.</li>
+			</ul>
+		    </section>
+		    
+		</section>
+		<!-- END Docker Means More Consistent Delivery Quality -->
+
+		<section data-background-color="#80ffbf">
+		    <h2>Docker Means More Developer Control</h2>
+		    <aside class="notes">
+			<ul>
+			    <li>This is where things "organizational"</li>
+			    <li>Some backgound is necessary</li>
+			</ul>
+		    </aside>
+		</section>
+
+		<!-- BEGIN The Way Things Are -->
+		<section data-background-color="#ffc299">
+		    <section>
+			<h2>The Way Things Are</h2>
+			<small>...in a lot of large IT shops</small>
+		    </section>
+
+		    <section>
+			<h2>Middleware Priesthoods</h2>
+			<ul>
+			    <li>In a lot of large shops, the
+				<b>middleware</b> groups control
+				everything between the deployable and OS.</li>
+			    <ul>
+				<li>App and web server software</li>
+				<li>Database</li>
+				<li>OS</li>
+			    </ul>
+			    <li>This "priesthood" adds a very large
+			    layer of coordination and costs.</li>
+			</ul>
+		    </section>
+
+		    <section>
+			<h3>Modern IT Org Structure</h3>
+			<a href="images/three-tiers-of-delivery-today.png">
+			    <img src="images/three-tiers-of-delivery-today.png" />
+			</a>
+		    </section>
+
+		    <section>
+			<h3>The Delivery Chasm</h3>
+			<a href="images/delivery-chasm-flowchart.png">
+			    <img width="45%" height="45%" src="images/delivery-chasm-flowchart.png" />
+			</a>
+		    </section>
+
+		    <section>
+			<h3>Rigid Architecture</h3>
+			<ul>
+			    <li>Setup is very slow and costly</li>
+			    <li>You can't try new things out</li>
+			</ul>
+			<aside class="notes">
+			    You can't just "try something out" without
+			    involving the middleware priesthood, and
+			    that can add weeks or months to your
+			    timelines along with tens of thousands of
+			    dollars at a minimum.
+			</aside>
+		    </section>
+
+		    <section>
+			<h3>Middleware Dictates Architecture</h3>
+			<ul>
+			    <li>Perfectly good software choices are
+				denied due to organizational issues, not
+				technical ones.</li>
+			    <li>If software is stable and secure, then
+				shouldn't the developers be able to use it?</li>
+			</ul>
+			<aside class="notes">
+			    Here's a very common example:
+			    <ul>
+				<li>A project wants to use Java 9
+				because it will make their jobs *much*
+				easier.</li>
+				<li>Java 9 usage is denied because the
+				WAS team is already supporting Java 7
+				and 8 and are not staffed to also
+				support a third version.</li>
+				<li>This happens because the app
+				server is supported by a middleware
+				team.</li>
+				<li>Java 9 is denied because of a
+				staffing issue, *not* a technical
+				issue.</li>
+			    </ul>
+			</aside>
+		    </section>
+
+		    <section>
+			<h3>Middleware Dictates Project Schedules</h3>
+			<ul>
+			    <li>Middleware teams tell Dev teams when
+			    they can upgrade.</li>
+			    <li>Upgrades are often forced on project
+			    teams and can cause significant</li>
+			    delays.
+			</ul>
+		    </section>
+
+		    <section>
+			<h3>What is the cost benefit?</h3>
+			<p>There are certainly cost benefits of the current model, but these
+			    sorts of issues really make you question them.</p>
+		    </section>
+		</section>
+		<!-- END The Way Things Are -->
+
+		<!-- BEGIN The Way Things Could Be -->
+		<section data-background-color="#80ffbf">
+		    <section>
+			<h2>The Way Things Could Be</h2>
+		    </section>
+		    <section>
+			<h3>Delivering Code + Runtime</h3>
+			<ul>
+			    <li>Developers now have a standardized way
+				of specifying a language, runtime, and
+				supporting libs using Docker.</li>
+			    <li>Middleware teams will no longer have a
+				good reason to force a single toolset on
+				developers.</li>
+			</ul>
+			<aside class="notes">
+			    <ul>
+				<li>You're not delivering a ruby app,
+				    you're delivering a docker image</li>
+				<li>Infra teams will focus on a
+				    container's security compliance,
+				    performance, and logging instead of
+				    "low-level" features like the
+				    programming language or embedded
+				    runtime used.</li>
+			    </ul>
+			</aside>
+		    </section>
+
+		    <section>
+			<h3>Faster Delivery</h3>
+			<a href="images/docker-delivery-flowchart.png">
+			    <img height="47%" width="47%" src="images/docker-delivery-flowchart.png" />
+			</a>
+			<br />
+			<small>Wouldn't this be easier to automate?</small>
+		    </section>
+
+		    <section>
+			<h3>More Agility</h3>
+			<ul>
+			    <li>Systems can be spun up and destroyed very easily</li>
+			    <li>Costs and complexity of
+				trying new ideas is reduced significantly</li>
+			    <li>Experimentation becomes cheap, easy and business-as-usual</li>
+			</ul>
+			<aside class="notes">
+			    <p>At many organizations, simply installing
+				an app on a new server is a multi-week ordeal
+				that requires a "project". Containers can be exploited
+				to make these types of changes simple, fast and inexpensive.</p>
+			    <p>You no longer need to wait for the next big project to be funded
+				so that you can sneak in some experimentation or new ideas</p>
+			</aside>
+		    </section>
+
+		    <section>
+
+			<h3>The Results - Shrinking Middleware</h3>
+			<a href="images/three-tiers-of-delivery-with-docker.png">
+			    <img width="65%" height="65%" src="images/three-tiers-of-delivery-with-docker.png" />
+			</a>
+			
+		    </section>
+		    
+		</section>
+		<!-- END The Way Things Could Be -->
+
+		<section data-background-color="#ffff99">
+		    <h3>Summary</h3>
+		    <ul>
+			<li>Docker makes app delivery much easier because you now deliver "EXE's" that fit a standard interface.</li>
+			<li>This will make delivery easier, faster and higher-quality </li>
+			<li>It also gives teams significantly more agility</li>
+			<li>These advantages will have <strong>dramatic effects</strong> on many large IT shops</li>
+		    </ul>
+		</section>
+
+		<section data-background-color="#ffff99">
+		    <h3>What Didn't I Cover?</h3>
+		    <ul>
+			<li>Security</li>
+			<li>Orchestration</li>
+			<li>Load-Balancing</li>
+			<li>Service Discovery</li>
+		    </ul>
+		</section>
+		
+		<section data-background-color="#ffff99">
+		    <h2>Resources</h2>
+		    <ul>
+			<li><a href="https://www.dockerbook.com/">The Docker Book</a></li>
+			<ul>
+			    <li>Really an excellent book that covers a lot of topics</li>
+			</ul>
+			<li><a href="https://hub.docker.com">Docker Hub</a></li>
+			<ul>
+			    <li>A public Docker registry that contains
+				thousands of ready-made Docker images.</li>
+			</ul>
+				
+		    </ul>
+		</section>
+
+		<section data-background-color="#ffff99">
+		    <h3>Questions?</h3>
+		</section>
+	    </div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+	 // More info https://github.com/hakimel/reveal.js#configuration
+	 Reveal.initialize({
+	     history: true,
+
+	     // More info https://github.com/hakimel/reveal.js#dependencies
+	     dependencies: [
+		 { src: 'plugin/markdown/marked.js' },
+		 { src: 'plugin/markdown/markdown.js' },
+		 { src: 'plugin/notes/notes.js', async: true },
+		 { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+	     ]
+	 });
+	</script>
+    </body>
+</html>
