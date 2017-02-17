@@ -1,6 +1,13 @@
 #+TITLE: "What Docker Means" - A Presentation
 
 This is a presentation that I will be giving at the Fox Valley Linux
-User Group on 2/18/17. For more information you can just run the darn
-thing and read it :-) 
+User Group on 2/18/17. An online version can be found here:
 
+- http://static.tompurl.com/what-docker-means-preso/index.html
+
+The entire presentation should be self-contained. You can just clone
+the repo and open =index.html= in a web browser. 
+
+The only part of this presentation that's mine are (some) of the
+images. All of the CSS and JS are courtesy of the [[https://github.com/hakimel/reveal.js/][reveal.js]]
+project. For more information please read the presentation.
